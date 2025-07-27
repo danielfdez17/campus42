@@ -26,13 +26,13 @@ void	handle_single_arg(char *av)
 
 	if (is_double(av) == 1)
 	{
-		ft_put_error("Error\n");
+		ft_put_error("Error");
 		return ;
 	}
 	n = ft_atoll(av);
 	if (n < 0)
 	{
-		ft_put_error("Error\n");
+		ft_put_error("Error");
 		return ;
 	}
     if (n == 0)
