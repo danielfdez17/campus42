@@ -1,4 +1,14 @@
-
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   block_processing.c                                 :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: danfern3 <danfern3@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2025/07/27 16:06:35 by danfern3          #+#    #+#             */
+/*   Updated: 2025/07/27 16:42:30 by danfern3         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
 
 #include "ft_header.h"
 
@@ -6,10 +16,13 @@
  * Given a string and a starting index, this function will return
  * a block of 3 characters from the string, starting from the given index.
  * The block will be padded with zeros if the index is out of bounds.
+ * @example src = '23' -> out = '023'
  */
-void fill_block(char *src, int i, char *out)
+void	fill_block(char *src, int i, char *out)
 {
-	int j = 2;
+	int	j;
+
+	j = 2;
 	out[3] = '\0';
 	while (j >= 0)
 	{
@@ -25,10 +38,10 @@ void fill_block(char *src, int i, char *out)
  * file corresponding to the digit and append it to the part string. Then
  * append the string "100" to the part string followed by a space.
  */
-char *process_cents(char *block, char *part)
+char	*process_cents(char *block, char *part)
 {
-	char h[2];
-	
+	char	h[2];
+
 	h[0] = block[0];
 	h[1] = '\0';
 	part = ft_strcat(part, read_file(h));
@@ -44,7 +57,7 @@ char *process_cents(char *block, char *part)
  */
 char	*process_teens(char *block, char *part)
 {
-	char teens[3];
+	char	teens[3];
 
 	teens[0] = block[1];
 	teens[1] = block[2];
@@ -57,11 +70,12 @@ char	*process_teens(char *block, char *part)
  * read the file corresponding to the 2-digit number and append it to the part
  * string. If the units digit is not zero, read the file corresponding to the
  * single digit and append it to the part string.
+ * @example block = "023" -> twenty three
  */
 char	*process_units(char *block, char *part)
 {
-	char tens[3];
-	char units[2];
+	char	tens[3];
+	char	units[2];
 
 	if (block[1] != '0')
 	{
@@ -81,6 +95,10 @@ char	*process_units(char *block, char *part)
 	return (part);
 }
 
+/**
+ * Given an index, the function returns the corresponding value of the block.
+ * @example index = 4 -> "1000000000000"
+ */
 char	*get_block_index(int index)
 {
 	if (index == 0)

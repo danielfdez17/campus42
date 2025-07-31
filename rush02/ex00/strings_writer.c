@@ -6,27 +6,37 @@
 /*   By: danfern3 <danfern3@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/26 09:20:16 by danfern3          #+#    #+#             */
-/*   Updated: 2025/07/27 10:07:18 by danfern3         ###   ########.fr       */
+/*   Updated: 2025/07/27 17:36:39 by danfern3         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <unistd.h>
-#include <string.h>
 #include "ft_header.h"
 
-void    ft_putstr(char *str, int console)
+/**
+ * It prints 'str' to the corresponding console (success or error)
+ */
+void	ft_putstr(char *str, int console)
 {
-    int i;    i = 0;
-    while (str[i] != '\000')
-        write(console, &str[i++], 1);
+	int	i;
+
+	i = 0;
+	while (str[i] != '\000')
+		write(console, &str[i++], 1);
 }
 
-void    ft_put_error(char *str)
+/**
+ * It calls ft_putstr to print 'str' in the error console
+ */
+void	ft_put_error(char *str)
 {
-    ft_putstr(str, ERROR);
+	ft_putstr(str, ERROR);
 }
 
-void    ft_put_success(char *str)
+/**
+ * It calls ft_putstr to print 'str' in the success console
+ */
+void	ft_put_success(char *str)
 {
-    ft_putstr(str, SUCCESS);
+	ft_putstr(str, SUCCESS);
 }

@@ -6,10 +6,15 @@
 /*   By: danfern3 <danfern3@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/26 09:23:05 by danfern3          #+#    #+#             */
-/*   Updated: 2025/07/27 11:25:58 by danfern3         ###   ########.fr       */
+/*   Updated: 2025/07/27 16:52:57 by danfern3         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+/**
+ * Depending on both params, returns 0 if the result is negative.
+ * If the number is positive, it returns eithers its positive or negative
+ * value depending on the negative_counter value
+ */
 long long	ft_get_final_nb(long long result, int negative_counter)
 {
 	if (result < 0)
@@ -19,6 +24,10 @@ long long	ft_get_final_nb(long long result, int negative_counter)
 	return (result);
 }
 
+/**
+ * Converts the string to its long long equivalent
+ * before ending the function
+ */
 long long	ft_atoll(char *str)
 {
 	int			i;
@@ -44,6 +53,10 @@ long long	ft_atoll(char *str)
 	return (ft_get_final_nb(result, negative_counter));
 }
 
+/**
+ * Converts the number 'nb' to a string and reverse the result
+ * before ending the function
+ */
 void	ft_lltoa(long long nb, char *str)
 {
 	int		i;
