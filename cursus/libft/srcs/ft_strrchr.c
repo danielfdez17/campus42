@@ -1,15 +1,14 @@
 #include <stdlib.h>
+#include "libft.h"
 
-char	*ft_strchr(const char *s, int c)
+char	*ft_strrchr(const char *s, int c)
 {
 	char	*ptr;
+	size_t	size;
 
-	ptr = s;
-	while (ptr)
-	{
-		if (*ptr == (unsigned char)c)
+	size = ft_strlen(s);
+	while (size--)
+		if (s[size] == (unsigned char)c)
 			return (ptr);
-		*ptr++;
-	}
 	return (NULL);
 }
