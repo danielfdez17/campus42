@@ -12,6 +12,7 @@ INC_DIR = includes
 
 # Source files
 SRCS = $(wildcard $(SRC_DIR)/*.c)
+BONUS_SRCS = $(wildcard $(BONUS_SRC_DIR)/*.c)
 
 # Include files
 INCS = $(wildcard $(INC_DIR)/*.h)
@@ -20,7 +21,7 @@ INCS = $(wildcard $(INC_DIR)/*.h)
 OBJS = $(SRCS:.c=.o)
 
 # Bonus object files
-BONUS_OBJS = $(BONUS_SRC_DIR:.c=.o)
+BONUS_OBJS = $(BONUS_SRCS:.c=.o)
 
 # Compiler and flags
 CCW = gcc -Wall -Wextra -Werror
@@ -54,5 +55,9 @@ fclean: clean
 re: fclean all
 
 rebonus: fclean bonus
+
+so:
+	$(CCW) -nostartfiles -fPIC $(SRCS)
+	gcc -nostartfiles -shared -o libft.so $(OBJS)
 
 .PHONY: all clean fclean re rebonus bonus

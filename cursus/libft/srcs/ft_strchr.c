@@ -4,7 +4,7 @@ char	*ft_strchr(const char *s, int c)
 {
 	char	*ptr;
 
-	ptr = s;
+	ptr = (char *)s;
 	while (*ptr)
 		if (*ptr++ == (unsigned char)c)
 			return (ptr);

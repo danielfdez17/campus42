@@ -1,5 +1,5 @@
 #include <stdlib.h>
-#include "libft.h"
+#include "../includes/libft.h"
 
 int	ft_min(int a, int b)
 {
@@ -14,7 +14,7 @@ size_t	ft_strlcat(char *dst, const char *restrict src, size_t dsize)
 
 	total_size = ft_strlen(dst) + ft_min(ft_strlen(src), (int)dsize) + 1;
 	while (*dst)
-		*dst++;
+		dst++;
 	while (*src && dsize--)
 		*dst++ = *src++;
 	*dst = '\0';

@@ -1,5 +1,5 @@
 #include <stdlib.h>
-#include "libft.h"
+#include "../includes/libft.h"
 
 int	ft_isspace(char c)
 {
@@ -20,7 +20,7 @@ char	*ft_strtrim(char const *s)
 	start = 0;
 	while (ft_isspace(s[start]) == 1)
 		++start;
-		end = ft_strlen(s) - 1;
+	end = ft_strlen(s) - 1;
 	while (ft_isspace(s[end]) == 1)
 		--end;
 	result = malloc(sizeof(char) * (end - start + 1));

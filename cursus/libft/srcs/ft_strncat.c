@@ -1,4 +1,5 @@
 #include <stdlib.h>
+#include "../includes/libft.h"
 
 char	*ft_strncat(char *restrict dst, const char *src, size_t ssize)
 {

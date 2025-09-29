@@ -1,5 +1,5 @@
 #include <stdlib.h>
-#include "libft.h"
+#include "../includes/libft.h"
 
 char	*ft_strcat(char *restrict dst, const char *restrict src)
 {
