@@ -1,7 +1,7 @@
 #include <stdlib.h>
-#include "../includes/libft.h"
+#include <stdio.h>
 
-int	ft_count_words(char const *s, char c)
+static int	ft_count_words(char const *s, char c)
 {
 	int	words;
 	int	letters;
@@ -22,7 +22,7 @@ int	ft_count_words(char const *s, char c)
 	return (words);
 }
 
-char	*ft_get_segment(char const *s, int i, int letters)
+static char	*ft_get_segment(char const *s, int i, int letters)
 {
 	char	*result;
 	int		j;
@@ -40,7 +40,7 @@ char	*ft_get_segment(char const *s, int i, int letters)
 	return (result);
 }
 
-char	**ft_strsplit(char const *s, char c)
+char	**ft_split(char const *s, char c)
 {
 	char	**result;
 	int		i;
@@ -49,7 +49,7 @@ char	**ft_strsplit(char const *s, char c)
 
 	i = 0;
 	j = 0;
-	result = malloc(sizeof(char *) * ft_count_words(s, c));
+	result = malloc(sizeof(char *) * (ft_count_words(s, c) + 1));
 	if (!result)
 		return (NULL);
 	while (s[i])
@@ -61,11 +61,29 @@ char	**ft_strsplit(char const *s, char c)
 			if (letters != 0)
 			{
 				result[j] = ft_get_segment(s, i, letters);
+				printf("result[j]: %s\n", result[j]);
 				++j;
 			}
 			letters = 0;
 		}
 		++i;
 	}
+	result[j] = NULL;
 	return (result);
+}
+
+#include <stdio.h>
+int main(void)
+{
+	printf("hola\n");
+	char const *s = "hola buenos dias";
+	char c = ' ';
+	char **result = ft_split(s, c);
+	printf("hola\n");
+	int i = 0;
+	while (result[i]) {
+		printf("ft_split: %s", result[i]);
+		++i;
+	}
+	return (0);
 }
