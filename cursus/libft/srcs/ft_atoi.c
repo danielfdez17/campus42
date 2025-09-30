@@ -1,4 +1,11 @@
 
+static int ft_get_result(int result, int negative_counter)
+{
+	if (negative_counter % 2 == 1)
+		return (-result);
+	return (result);
+}
+
 int	ft_atoi(const char *nptr)
 {
 	int	result;
@@ -15,17 +22,30 @@ int	ft_atoi(const char *nptr)
 	while (nptr[i] == '+' || nptr[i] == '-')
 	{
 		if (nptr[i] == '+')
-			positive_counter++;
-		else
-			negative_counter++;
+			return (0);
+		negative_counter++;
 		++i;
 	}
 	while (nptr[i] >= '0' && nptr[i] <= '9')
 	{
-		result = result * 10 + (int)nptr[i];
+		result = result * 10 + (nptr[i] - '0');
 		++i;
 	}
-	if (negative_counter > 1 || positive_counter > 1)
+	if (negative_counter > 1 || positive_counter >= 1)
 		return (0);
-	return (result);
+	return (ft_get_result(result, negative_counter));
 }
+
+// #include <stdio.h>
+// #include <stdlib.h>
+// int main(int ac, char **av)
+// {
+// 	int i = 2;
+// 	while (--ac > 1)
+// 	{
+// 		printf("ft_atoi: %d\n", ft_atoi(av[i]));
+// 		printf("atoi: %d\n---\n", atoi(av[i]));
+// 		++i;
+// 	}
+// 	return (0);
+// }
