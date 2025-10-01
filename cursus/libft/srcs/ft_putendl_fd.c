@@ -5,7 +5,6 @@ static void	ft_putchar_fd(char c, int fd)
 	write(fd, &c, 1);
 }
 
-
 static void	ft_putstr_fd(char const *s, int fd)
 {
 	if (!s)
@@ -16,6 +15,7 @@ static void	ft_putstr_fd(char const *s, int fd)
 		s++;
 	}
 }
+
 void	ft_putendl_fd(char const *s, int fd)
 {
 	if (!s)
