@@ -1,11 +1,22 @@
 #include <stdlib.h>
-#include "../includes/libft.h"
 
-int	ft_get_len(int n)
+static size_t	ft_strlen(const char *s)
+{
+	size_t	i;
+
+	i = 0;
+	while (s[i])
+		++i;
+	return (i);
+}
+
+static int	ft_get_len(int n)
 {
 	int	i;
 
 	i = 0;
+	if (n == 0)
+		return (1);
 	if (n < 0)
 	{
 		while (n < 0)
@@ -23,14 +34,14 @@ int	ft_get_len(int n)
 	return (i);
 }
 
-char	*ft_reverse(char *s)
+static char	*ft_reverse(char *s)
 {
 	size_t	start;
 	size_t	end;
 	char	c;
 
 	start = 0;
-	end = ft_strlen(s);
+	end = ft_strlen(s) - 1;
 	while (start < end)
 	{
 		c = s[start];
@@ -46,10 +57,11 @@ char	*ft_itoa(int n)
 {
 	char	*result;
 	int		i;
-
 	result = malloc(sizeof(char) * (ft_get_len(n) + 1));
 	if (!result)
 		return (NULL);
+	if (n == 0)
+		return ("0\0");
 	i = 0;
 	if (n < 0)
 	{
@@ -72,3 +84,15 @@ char	*ft_itoa(int n)
 	result[i] = '\0';
 	return (ft_reverse(result));
 }
+
+// #include <stdio.h>
+// int main(int ac, char **av)
+// {
+// 	int i = 1;
+// 	while (ac-- > 1)
+// 	{
+// 		printf("ft_itoa(%d): %s\n", atoi(av[i]), ft_itoa(atoi(av[i])));
+// 		++i;
+// 	}
+// 	return (0);
+// }
