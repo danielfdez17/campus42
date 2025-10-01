@@ -1,7 +1,10 @@
-// #include <stdio.h>
 #include <string.h>
 
-char	*ft_strstr(char *str, char *to_find)
+/** 
+ * @var arr[0] iterates trough the characters of @param str
+ * @var arr[1] iterates the matching characters
+*/
+char	*ft_strstr(char *str, char *to_find, size_t len)
 {
 	unsigned int	arr[2];
 
@@ -11,11 +14,11 @@ char	*ft_strstr(char *str, char *to_find)
 	arr[1] = 0;
 	while (str[arr[0]] != '\0')
 	{
-		if (str[arr[0]] == to_find[arr[1]])
+		if (str[arr[0]] == to_find[arr[1]] && arr[1] < (unsigned int)len)
 			++arr[1];
 		else
 		{
-			if (to_find[arr[1]] == '\0')
+			if (to_find[arr[1]] == '\0' || arr[1] == (unsigned int)len)
 			{
 				if (arr[1] != 0)
 					return (&str[arr[0] - arr[1]]);
@@ -30,13 +33,15 @@ char	*ft_strstr(char *str, char *to_find)
 	return (NULL);
 }
 
+// #include <stdio.h>
 // int main(void)
 // {
-// 	char	*str = "abcabcabc";
-// 	char	*to_find = "abcabcabc";
-// 	printf("%s\n", ft_strstr(str, to_find));
-// 	const char	*haystack = "abcabcabc";
-// 	const char	*needle = "abcabcabc";
-// 	printf("%s\n", strstr(haystack, needle));
+// 	char	*str = "aaaaa";
+// 	char	*to_find = "aaaaa";
+// 	size_t len = 3;
+// 	printf("%s\n", ft_strstr(str, to_find, len));
+// 	// const char	*haystack = "abcabcabc";
+// 	// const char	*needle = "abcabcabc";
+// 	// printf("%s\n", strstr(haystack, needle));
 // 	return (0);
 // }
