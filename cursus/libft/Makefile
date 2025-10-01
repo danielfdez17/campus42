@@ -5,7 +5,7 @@ NAME = libft.a
 SRC_DIR = srcs
 
 # Bonus source directory
-BONUS_SRC_DIR = bonus_srcs
+BONUS_SRC_DIR = _bonus
 
 # Header directory
 INC_DIR = includes
