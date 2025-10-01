@@ -1,17 +1,15 @@
-#include "../includes/libft.h"
+#include "libft.h"
 
 t_list	*ft_lstnew(void const *content)
 {
 	t_list	*result;
 	size_t	content_size;
 
-	result = (t_list *)malloc(sizeof(t_list));
+	result = malloc(sizeof(t_list));
 	if (!result)
 		return (NULL);
 	if (!content)
-	{
 		result->content = NULL;
-	}
 	else
 	{
 		content_size = ft_strlen(content) + 1;

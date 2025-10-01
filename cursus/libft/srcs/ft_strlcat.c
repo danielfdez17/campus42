@@ -1,14 +1,15 @@
 #include <stdlib.h>
+#include "libft.h"
 
-size_t	ft_strlen(const char *s)
-{
-	size_t	i;
+// size_t	ft_strlen(const char *s)
+// {
+// 	size_t	i;
 
-	i = 0;
-	while (s[i])
-		++i;
-	return (i);
-}
+// 	i = 0;
+// 	while (s[i])
+// 		++i;
+// 	return (i);
+// }
 
 int	ft_min(int a, int b)
 {
@@ -17,7 +18,7 @@ int	ft_min(int a, int b)
 	return (b);
 }
 
-size_t	ft_strlcat(char *dst, const char *restrict src, size_t dsize)
+size_t	ft_strlcat(char *dst, const char *src, size_t dsize)
 {
 	size_t	total_size;
 
