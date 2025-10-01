@@ -18,10 +18,9 @@ size_t	ft_strlen(const char *s);
 char	*ft_strdup(const char *s);
 int		ft_isalpha(int c);
 int		ft_isdigit(int c);
-void	ft_putchar(char c);
-void	ft_putstr(char const *c);
 void	ft_putchar_fd(char c, int fd);
 void	ft_putstr_fd(char const *s, int fd);
 void	ft_lstadd(t_list **alst, t_list *new);
+t_list	*ft_lstlast(t_list *lst);
 
 # endif
