@@ -1,5 +1,4 @@
 #include <stdlib.h>
-#include <stdio.h>
 
 static int	ft_count_words(char const *s, char c)
 {
@@ -18,6 +17,7 @@ static int	ft_count_words(char const *s, char c)
 				words++;
 			letters = 0;
 		}
+		s++;
 	}
 	return (words);
 }
@@ -61,29 +61,31 @@ char	**ft_split(char const *s, char c)
 			if (letters != 0)
 			{
 				result[j] = ft_get_segment(s, i, letters);
-				printf("result[j]: %s\n", result[j]);
 				++j;
 			}
 			letters = 0;
 		}
 		++i;
 	}
+	if (letters != 0)
+	{
+		result[j] = ft_get_segment(s, i, letters);
+		++j;
+	}
 	result[j] = NULL;
 	return (result);
 }
 
-#include <stdio.h>
-int main(void)
-{
-	printf("hola\n");
-	char const *s = "hola buenos dias";
-	char c = ' ';
-	char **result = ft_split(s, c);
-	printf("hola\n");
-	int i = 0;
-	while (result[i]) {
-		printf("ft_split: %s", result[i]);
-		++i;
-	}
-	return (0);
-}
+// #include <stdio.h>
+// int main(void)
+// {
+// 	char const *s = "hola buenos dias";
+// 	char c = ' ';
+// 	char **result = ft_split(s, c);
+// 	int i = 0;
+// 	while (result[i]) {
+// 		printf("ft_split: %s\n", result[i]);
+// 		++i;
+// 	}
+// 	return (0);
+// }
