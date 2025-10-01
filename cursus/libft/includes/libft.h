@@ -22,5 +22,6 @@ void	ft_putchar_fd(char c, int fd);
 void	ft_putstr_fd(char const *s, int fd);
 void	ft_lstadd(t_list **alst, t_list *new);
 t_list	*ft_lstlast(t_list *lst);
+void	ft_lstdelone(t_list **lst, void (*del)(void *));
 
 # endif
