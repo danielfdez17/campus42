@@ -20,12 +20,12 @@ char	*ft_strchr(const char *s, int c)
 	while (*ptr)
 	{
 		if (*ptr == (char)c)
-			return ptr;
+			return (ptr);
 		ptr++;
 	}
 	if (c == '\0')
-		return ptr;
-	return NULL;
+		return (ptr);
+	return (NULL);
 }
 
 // #include <stdio.h>
