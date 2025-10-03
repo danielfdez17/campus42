@@ -1,5 +1,5 @@
 # libft
-- [ ] ft_strlcpy
+- [x] ft_strlcpy
 - [ ] ft_strchr
 - [ ] ft_strrchr
 - [ ] ft_strnstr
@@ -7,5 +7,5 @@
 - [ ] ft_substr
 - [ ] ft_strtrim
 - [ ] ft_split
-- [ ] ft_itoa
+- [x] ft_itoa
 
