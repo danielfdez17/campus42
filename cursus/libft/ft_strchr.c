@@ -18,19 +18,36 @@ char	*ft_strchr(const char *s, int c)
 
 	ptr = (char *)s;
 	while (*ptr)
-		if (*ptr++ == c)
-			return (--ptr);
-	return (NULL);
+	{
+		if (*ptr == (char)c)
+			return ptr;
+		ptr++;
+	}
+	if (c == '\0')
+		return ptr;
+	return NULL;
 }
 
 // #include <stdio.h>
 // #include <stdlib.h>
 // #include <string.h>
+// #include <assert.h>
 // int main(void)
 // {
-// 	const char *s = "asdfasdfa";
-// 	int c = 'o';
-// 	printf("ft_strchr: %s\n", ft_strchr(s, c));
-// 	printf("strchr: %s\n---\n", strchr(s, c));
+// 	const char *s = "bonjour";
+// 	int c = 'b';
+// 	assert(ft_strchr(s, c) == strchr(s, c));
+// 	c = 'o';
+// 	assert(ft_strchr(s, c) == strchr(s, c));
+// 	c = 'j';
+// 	assert(ft_strchr(s, c) == strchr(s, c));
+// 	c = 's';
+// 	assert(ft_strchr(s, c) == strchr(s, c));
+// 	c = '\0';
+// 	assert(ft_strchr(s, c) == strchr(s, c));
+// 	s = "";
+// 	assert(ft_strchr(s, c) == strchr(s, c));
+// 	// printf("ft_strchr: %s\n", ft_strchr(s, c));
+// 	// printf("strchr: %s\n---\n", strchr(s, c));
 // 	return (0);
 // }
