@@ -45,15 +45,36 @@ char	*ft_strnstr(char *str, char *to_find, size_t len)
 	return (NULL);
 }
 
-// #include <stdio.h>
-// int main(void)
-// {
-// 	char	*str = "aaaaa";
-// 	char	*to_find = "aaaaa";
-// 	size_t len = 3;
-// 	printf("%s\n", ft_strstr(str, to_find, len));
-// 	// const char	*haystack = "abcabcabc";
-// 	// const char	*needle = "abcabcabc";
-// 	// printf("%s\n", strstr(haystack, needle));
-// 	return (0);
-// }
+#include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
+#include <assert.h>
+int main(void)
+{
+	// * 1
+	char *str = "bonjour";
+	char *to_find = "";
+	size_t len = 3;
+	assert(ft_strnstr(str, to_find, len) == strnstr(str, to_find, len));
+	// * 2
+	assert(ft_strnstr(str, to_find, len) == strnstr(str, to_find, len));
+	// * 3
+	str = "bonjourno";
+	assert(ft_strnstr(str, to_find, len) == strnstr(str, to_find, len));
+	// * 4
+	str = "bonjour";
+	assert(ft_strnstr(str, to_find, len) == strnstr(str, to_find, len));
+	// * 5
+	assert(ft_strnstr(str, to_find, len) == strnstr(str, to_find, len));
+	// * 6
+	assert(ft_strnstr(str, to_find, len) == strnstr(str, to_find, len));
+	// * 7
+	str = "";
+	assert(ft_strnstr(str, to_find, len) == strnstr(str, to_find, len));
+	// * 8
+	str = "bonjour";
+	assert(ft_strnstr(str, to_find, len) == strnstr(str, to_find, len));
+	// printf("ft_strnstr: %s\n", ft_strnstr(s, c));
+	// printf("strnstr: %s\n---\n", strnstr(s, c));
+	return (0);
+}
