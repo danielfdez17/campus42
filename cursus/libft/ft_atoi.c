@@ -45,16 +45,18 @@ int	ft_atoi(const char *nptr)
 	return (ft_get_result(result, negative_counter));
 }
 
-// #include <stdio.h>
-// #include <stdlib.h>
-// int main(int ac, char **av)
-// {
-// 	int i = 1;
-// 	while (--ac)
-// 	{
-// 		printf("ft_atoi: %d\n", ft_atoi(av[i]));
-// 		printf("atoi: %d\n---\n", atoi(av[i]));
-// 		++i;
-// 	}
-// 	return (0);
-// }
+#include <stdio.h>
+#include <stdlib.h>
+#include <assert.h>
+int main(int ac, char **av)
+{
+	int i = 1;
+	while (--ac)
+	{
+		printf("ft_atoi: %d\n", ft_atoi(av[i]));
+		printf("atoi: %d\n---\n", atoi(av[i]));
+		assert(ft_atoi(av[i]) == atoi(av[i]));
+		++i;
+	}
+	return (0);
+}
