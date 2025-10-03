@@ -1,3 +1,14 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_isdigit.c                                       :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: danfern3 <danfern3@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2025/10/03 07:46:15 by danfern3          #+#    #+#             */
+/*   Updated: 2025/10/03 08:14:28 by danfern3         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
 
 int	ft_isdigit(int c)
 {
@@ -13,7 +24,9 @@ int	ft_isdigit(int c)
 // 	int i = 1;
 // 	while (ac-- > 1)
 // 	{
-// 		printf("char: %c\nisdigit: %d\nft_isdigit: %d\n---\n", av[i][0], isdigit(av[i][0]), ft_isdigit(av[i][0]));
+// 		printf("char: %c\n", av[i][0]);
+// 		printf("isdigit: %d\n", isdigit(av[i][0]));
+// 		printf("ft_isdigit: %d\n---\n", ft_isdigit(av[i][0]));
 // 		++i;
 // 	}
 // 	return (0);

@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_split.c                                         :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: danfern3 <danfern3@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2025/10/03 07:46:05 by danfern3          #+#    #+#             */
+/*   Updated: 2025/10/03 08:10:48 by danfern3         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include <stdlib.h>
 
 static int	ft_count_words(char const *s, char c)
@@ -40,39 +52,48 @@ static char	*ft_get_segment(char const *s, int i, int letters)
 	return (result);
 }
 
+/**
+ * @var counters[0] to iterate the whole string @param s
+ * @var counters[1] to iterate every word of @param s
+ * @var counters[2] to know the letters of every word of @param s
+ */
+static void	ft_aux_get_seg(char const *s, char **result, int *counters)
+{
+	if (counters[2] != 0)
+	{
+		result[counters[1]] = ft_get_segment(s, counters[0], counters[2]);
+		++counters[1];
+	}
+}
+
+/**
+ * @var counters[0] to iterate the whole string @param s
+ * @var counters[1] to iterate every word of @param s
+ * @var counters[2] to know the letters of every word of @param s
+ */
 char	**ft_split(char const *s, char c)
 {
 	char	**result;
-	int		i;
-	int		j;
-	int		letters;
+	int		counters[3];
 
-	i = 0;
-	j = 0;
+	counters[0] = 0;
+	counters[1] = 0;
+	counters[2] = 0;
 	result = malloc(sizeof(char *) * (ft_count_words(s, c) + 1));
 	if (!result)
 		return (NULL);
-	while (s[i])
+	while (s[counters[0]])
 	{
-		if ((unsigned char) s[i] != (unsigned char) c)
-			++letters;
+		if ((unsigned char) s[counters[0]] != (unsigned char) c)
+			++counters[2];
 		else
 		{
-			if (letters != 0)
-			{
-				result[j] = ft_get_segment(s, i, letters);
-				++j;
-			}
-			letters = 0;
+			ft_aux_get_seg(s, result, counters);
+			counters[2] = 0;
 		}
-		++i;
+		++counters[0];
 	}
-	if (letters != 0)
-	{
-		result[j] = ft_get_segment(s, i, letters);
-		++j;
-	}
-	result[j] = NULL;
+	result[counters[1]] = NULL;
 	return (result);
 }
 

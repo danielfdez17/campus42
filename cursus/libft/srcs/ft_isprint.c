@@ -1,3 +1,14 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_isprint.c                                       :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: danfern3 <danfern3@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2025/10/03 07:46:14 by danfern3          #+#    #+#             */
+/*   Updated: 2025/10/03 08:12:24 by danfern3         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
 
 int	ft_isprint(int c)
 {
@@ -13,7 +24,9 @@ int	ft_isprint(int c)
 // 	int i = 1;
 // 	while (ac-- > 1)
 // 	{
-// 		printf("char: %c\nisprint: %d\nft_isprint: %d\n---\n", av[i][0], isprint(av[i][0]), ft_isprint(av[i][0]));
+// 		printf("char: %c\n", av[i][0]);
+// 		printf("isprint: %d\n", isprint(av[i][0]));
+// 		printf("ft_isprint: %d\n---\n", ft_isprint(av[i][0]));
 // 		++i;
 // 	}
 // 	return (0);

@@ -1,3 +1,14 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_isascii.c                                       :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: danfern3 <danfern3@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2025/10/03 07:46:16 by danfern3          #+#    #+#             */
+/*   Updated: 2025/10/03 08:15:56 by danfern3         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
 
 int	ft_isascii(int c)
 {
@@ -13,7 +24,9 @@ int	ft_isascii(int c)
 // 	int i = 1;
 // 	while (ac-- > 1)
 // 	{
-// 		printf("char: %c\nisascii: %d\nft_isascii: %d\n---\n", av[i][0], isascii(av[i][0]), ft_isascii(av[i][0]));
+// 		printf("char: %c\n", av[i][0]);
+// 		printf("isascii: %d\n", isascii(av[i][0]));
+// 		printf("ft_isascii: %d\n---\n", ft_isascii(av[i][0]));
 // 		++i;
 // 	}
 // 	return (0);

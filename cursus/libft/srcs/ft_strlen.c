@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_strlen.c                                        :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: danfern3 <danfern3@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2025/10/03 07:45:58 by danfern3          #+#    #+#             */
+/*   Updated: 2025/10/03 08:10:06 by danfern3         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include <stdlib.h>
 
 size_t	ft_strlen(const char *s)
@@ -17,7 +29,9 @@ size_t	ft_strlen(const char *s)
 // 	int i = 1;
 // 	while (ac-- > 1)
 // 	{
-// 		printf("str: %s\nstrlen: %lld\nft_strlen: %lld\n---\n", av[i], strlen(av[i]), ft_strlen(av[i]));
+// 		printf("str: %s\n", av[i]);
+// 		printf("strlen: %lld\n", strlen(av[i]));
+// 		printf("ft_strlen:  %lld\n---\n", ft_strlen(av[i]));
 // 		++i;
 // 	}
 // 	return (0);

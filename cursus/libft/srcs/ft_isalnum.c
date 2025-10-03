@@ -1,11 +1,23 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_isalnum.c                                       :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: danfern3 <danfern3@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2025/10/03 07:46:18 by danfern3          #+#    #+#             */
+/*   Updated: 2025/10/03 08:18:30 by danfern3         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "libft.h"
 
+// if (ft_isalpha(c) == 1 || ft_isdigit(c) == 1)
+// 	return (1);
+// return (0);
 int	ft_isalnum(int c)
 {
 	return (ft_isalpha(c) || ft_isdigit(c));
-	// if (ft_isalpha(c) == 1 || ft_isdigit(c) == 1)
-	// 	return (1);
-	// return (0);
 }
 
 // #include <ctype.h>
@@ -15,7 +27,9 @@ int	ft_isalnum(int c)
 // 	int i = 1;
 // 	while (ac-- > 1)
 // 	{
-// 		printf("char: %c\nisalnum: %d\nft_isalnum: %d\n---\n", av[i][0], isalnum(av[i][0]), ft_isalnum(av[i][0]));
+// 		printf("char: %c\n", av[i][0]);
+// 		printf("isalnum: %d\n", isalnum(av[i][0]));
+// 		printf("ft_isalnum: %d\n---\n", ft_isalnum(av[i][0]));
 // 		++i;
 // 	}
 // 	return (0);

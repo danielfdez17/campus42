@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_itoa.c                                          :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: danfern3 <danfern3@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2025/10/03 07:46:13 by danfern3          #+#    #+#             */
+/*   Updated: 2025/10/03 08:10:59 by danfern3         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include <stdlib.h>
 #include "libft.h"
 
@@ -54,10 +66,24 @@ static char	*ft_reverse(char *s)
 	return (s);
 }
 
+static char	*ft_negative_case(int n, char *result, int i)
+{
+	while (n < 0)
+	{
+		result[i] = n % 10 + '0';
+		++i;
+		n /= 10;
+	}
+	result[i] = '-';
+	result[i + 1] = '\0';
+	return (ft_reverse(result));
+}
+
 char	*ft_itoa(int n)
 {
 	char	*result;
 	int		i;
+
 	result = malloc(sizeof(char) * (ft_get_len(n) + 1));
 	if (!result)
 		return (NULL);
@@ -65,17 +91,7 @@ char	*ft_itoa(int n)
 		return ("0\0");
 	i = 0;
 	if (n < 0)
-	{
-		while (n < 0)
-		{
-			result[i] = n % 10 + '0';
-			++i;
-			n /= 10;
-		}
-		result[i] = '-';
-		result[i + 1] = '\0';
-		return (ft_reverse(result));
-	}
+		return (ft_negative_case(n, result, i));
 	while (n > 0)
 	{
 		result[i] = n % 10 + '0';

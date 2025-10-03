@@ -1,5 +1,16 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_atoi.c                                          :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: danfern3 <danfern3@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2025/10/03 07:45:48 by danfern3          #+#    #+#             */
+/*   Updated: 2025/10/03 08:07:25 by danfern3         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
 
-static int ft_get_result(int result, int negative_counter)
+static int	ft_get_result(int result, int negative_counter)
 {
 	if (negative_counter % 2 == 1)
 		return (-result);
@@ -11,12 +22,10 @@ int	ft_atoi(const char *nptr)
 	int	result;
 	int	i;
 	int	negative_counter;
-	int	positive_counter;
 
 	result = 0;
 	i = 0;
 	negative_counter = 0;
-	positive_counter = 0;
 	while (nptr[i] == ' ' || (nptr[i] >= '\t' && nptr[i] <= '\r'))
 		++i;
 	while (nptr[i] == '+' || nptr[i] == '-')
@@ -31,7 +40,7 @@ int	ft_atoi(const char *nptr)
 		result = result * 10 + (nptr[i] - '0');
 		++i;
 	}
-	if (negative_counter > 1 || positive_counter >= 1)
+	if (negative_counter > 1)
 		return (0);
 	return (ft_get_result(result, negative_counter));
 }
