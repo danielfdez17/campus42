@@ -6,75 +6,117 @@
 /*   By: danfern3 <danfern3@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/03 07:45:55 by danfern3          #+#    #+#             */
-/*   Updated: 2025/10/03 14:52:48 by danfern3         ###   ########.fr       */
+/*   Updated: 2025/10/07 09:53:14 by danfern3         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <string.h>
+#include "libft.h"
 
 /** 
- * @var arr[0] iterates trough the characters of @param str
- * @var arr[1] iterates the matching characters
+ * @var counters[0] iterates trough the characters of @param str
+ * @var counters[1] iterates the matching characters
 */
-char	*ft_strnstr(char *str, char *to_find, size_t len)
+char	*ft_strnstr(char *big, char *litle, size_t len)
 {
-	unsigned int	arr[2];
+	size_t	i;
+	size_t	j;
 
-	if (to_find[0] == '\0')
-		return (&str[0]);
-	arr[0] = 0;
-	arr[1] = 0;
-	while (str[arr[0]] != '\0')
+	if (litle[0] == '\0')
+		return (&big[0]);
+	i = 0;
+	while (big[i] != '\0' && i < len)
 	{
-		if (str[arr[0]] == to_find[arr[1]] && arr[1] < (unsigned int)len)
-			++arr[1];
-		else
+		j = 0;
+		while (big[i + j] == litle[j] && i + j < len)
 		{
-			if (to_find[arr[1]] == '\0' || arr[1] == (unsigned int)len)
-			{
-				if (arr[1] != 0)
-					return (&str[arr[0] - arr[1]]);
-				return (NULL);
-			}
-			arr[1] = 0;
+			if (litle[j + 1] == '\0')
+				return (&big[i]);
+			j++;
 		}
-		++arr[0];
+		i++;
 	}
-	if (str[arr[0]] == to_find[arr[1]])
-		return (&str[arr[0] - arr[1]]);
 	return (NULL);
 }
 
-#include <stdio.h>
-#include <stdlib.h>
-#include <string.h>
-#include <assert.h>
-int main(void)
-{
-	// * 1
-	char *str = "bonjour";
-	char *to_find = "";
-	size_t len = 3;
-	assert(ft_strnstr(str, to_find, len) == strnstr(str, to_find, len));
-	// * 2
-	assert(ft_strnstr(str, to_find, len) == strnstr(str, to_find, len));
-	// * 3
-	str = "bonjourno";
-	assert(ft_strnstr(str, to_find, len) == strnstr(str, to_find, len));
-	// * 4
-	str = "bonjour";
-	assert(ft_strnstr(str, to_find, len) == strnstr(str, to_find, len));
-	// * 5
-	assert(ft_strnstr(str, to_find, len) == strnstr(str, to_find, len));
-	// * 6
-	assert(ft_strnstr(str, to_find, len) == strnstr(str, to_find, len));
-	// * 7
-	str = "";
-	assert(ft_strnstr(str, to_find, len) == strnstr(str, to_find, len));
-	// * 8
-	str = "bonjour";
-	assert(ft_strnstr(str, to_find, len) == strnstr(str, to_find, len));
-	// printf("ft_strnstr: %s\n", ft_strnstr(s, c));
-	// printf("strnstr: %s\n---\n", strnstr(s, c));
-	return (0);
-}
+// #include <stdio.h>
+// #include <stdlib.h>
+// #include <string.h>
+// #include <bsd/string.h>
+// int main(void)
+// {
+// 	printf("ft_strnstr: %s\n",\
+// 		 ft_strnstr("Foo Bar Baz", "Bar", 4));
+// 	printf("   strnstr: %s\n---\n",\
+// 		 strnstr("Foo Bar Baz", "Bar", 4));
+// 	printf("ft_strnstr: %s\n",\
+// 		 ft_strnstr("lorem ipsum dolor sit amet", "sit", 10));
+// 	printf("   strnstr: %s\n---\n",\
+// 		 strnstr("lorem ipsum dolor sit amet", "sit", 10));
+// 	printf("ft_strnstr: %s\n",\
+// 		 ft_strnstr("lorem ipsum dolor sit amet", "dolor", 15));
+// 	printf("   strnstr: %s\n---\n",\
+// 		 strnstr("lorem ipsum dolor sit amet", "dolor", 15));
+// 	printf("ft_strnstr: %s\n",\
+// 		 ft_strnstr("lorem ipsum dolor sit amet", "ipsum", 15));
+// 	printf("   strnstr: %s\n---\n",\
+// 		 strnstr("lorem ipsum dolor sit amet", "ipsum", 15));
+// 	printf("ft_strnstr: %s\n",\
+// 		 ft_strnstr("lorem ipsum dolor sit lorem ipsum dolor", "ipsum", 35));
+// 	printf("   strnstr: %s\n---\n",\
+// 		 strnstr("lorem ipsum dolor sit lorem ipsum dolor", "ipsum", 35));
+// 	printf("ft_strnstr: %s\n",\
+// 		 ft_strnstr("lorem ipsum dolor sit amet", "dol", 30));
+// 	printf("   strnstr: %s\n---\n",\
+// 		 strnstr("lorem ipsum dolor sit amet", "dol", 30));
+// 	printf("ft_strnstr: %s\n",\
+// 		 ft_strnstr("abcdefgh", "abc", 2));
+// 	printf("   strnstr: %s\n---\n",\
+// 		 strnstr("abcdefgh", "abc", 2));
+// 	printf("ft_strnstr: %s\n",\
+// 		 ft_strnstr("abcdefgh", "abc", 3));
+// 	printf("   strnstr: %s\n---\n",\
+// 		 strnstr("abcdefgh", "abc", 3));
+// 	printf("ft_strnstr: %s\n",\
+// 		 ft_strnstr("abc", "abcdef", 2));
+// 	printf("   strnstr: %s\n---\n",\
+// 		 strnstr("abc", "abcdef", 2));
+// 	printf("ft_strnstr: %s\n",\
+// 		 ft_strnstr("aaxx", "xx", 2));
+// 	printf("   strnstr: %s\n---\n",\
+// 		 strnstr("aaxx", "xx", 2));
+// 	printf("ft_strnstr: %s\n",\
+// 		 ft_strnstr("aaxx", "xx", 3));
+// 	printf("   strnstr: %s\n---\n",\
+// 		 strnstr("aaxx", "xx", 3));
+// 	printf("ft_strnstr: %s\n",\
+// 		 ft_strnstr("abcdefgh", "abc", 4));
+// 	printf("   strnstr: %s\n---\n",\
+// 		 strnstr("abcdefgh", "abc", 4));
+// 	printf("ft_strnstr: %s\n",\
+// 		 ft_strnstr("abcdefgh", "abc", 5));
+// 	printf("   strnstr: %s\n---\n",\
+// 		 strnstr("abcdefgh", "abc", 5));
+// 	printf("ft_strnstr: %s\n",\
+// 		 ft_strnstr("aaxx", "xx", 4));
+// 	printf("   strnstr: %s\n---\n",\
+// 		 strnstr("aaxx", "xx", 4));
+// 	printf("ft_strnstr: %s\n",\
+// 		 ft_strnstr("aaxx", "xx", 5));
+// 	printf("   strnstr: %s\n---\n",\
+// 		 strnstr("aaxx", "xx", 5));
+// 	printf("ft_strnstr: %s\n",\
+// 		 ft_strnstr("aaxx", "xx", 6));
+// 	printf("   strnstr: %s\n---\n",\
+// 		 strnstr("aaxx", "xx", 6));
+// 	// ("aaxx", "xx", 6) -> xx
+// 	printf("ft_strnstr: %s\n",\
+// 		 ft_strnstr("abc", "abc", 7));
+// 	printf("   strnstr: %s\n---\n",\
+// 		 strnstr("abc", "abc", 7));
+// 	printf("ft_strnstr: %s\n",\
+// 		 ft_strnstr("abcdef", "abc\375xx", 3));
+// 	printf("   strnstr: %s\n---\n",\
+// 		 strnstr("abcdef", "abc\375xx", 3));
+// 	return (0);
+// }
+// // ccw -lbsd ft_strnstr -o a.out && ./a.out

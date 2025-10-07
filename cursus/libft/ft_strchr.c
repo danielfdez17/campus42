@@ -6,11 +6,12 @@
 /*   By: danfern3 <danfern3@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/03 07:46:04 by danfern3          #+#    #+#             */
-/*   Updated: 2025/10/03 14:51:15 by danfern3         ###   ########.fr       */
+/*   Updated: 2025/10/06 10:54:00 by danfern3         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <stdlib.h>
+#include "libft.h"
 
 char	*ft_strchr(const char *s, int c)
 {

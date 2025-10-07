@@ -6,22 +6,11 @@
 /*   By: danfern3 <danfern3@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/03 07:46:13 by danfern3          #+#    #+#             */
-/*   Updated: 2025/10/03 12:21:58 by danfern3         ###   ########.fr       */
+/*   Updated: 2025/10/07 11:10:12 by danfern3         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdlib.h>
 #include "libft.h"
-
-// static size_t	ft_strlen(const char *s)
-// {
-// 	size_t	i;
-
-// 	i = 0;
-// 	while (s[i])
-// 		++i;
-// 	return (i);
-// }
 
 static int	ft_get_len(int n)
 {
@@ -66,40 +55,42 @@ static char	*ft_reverse(char *s)
 	return (s);
 }
 
-static char	*ft_negative_case(int n, char *result, int i)
+static char	*ft_solve(int n, char *result)
 {
-	while (n < 0)
+	long	nb;
+	int		i;
+	int		is_negative;
+
+	i = 0;
+	nb = n;
+	is_negative = 0;
+	if (nb < 0)
 	{
-		result[i] = n % 10 + '0';
-		++i;
-		n /= 10;
+		nb = -nb;
+		is_negative = 1;
 	}
-	result[i] = '-';
-	result[i + 1] = '\0';
+	while (nb > 0)
+	{
+		result[i] = (nb % 10) + '0';
+		++i;
+		nb /= 10;
+	}
+	if (is_negative == 1)
+		result[i++] = '-';
+	result[i] = '\0';
 	return (ft_reverse(result));
 }
 
 char	*ft_itoa(int n)
 {
 	char	*result;
-	int		i;
 
+	if (n == 0)
+		return (ft_strdup("0"));
 	result = malloc(sizeof(char) * (ft_get_len(n) + 1));
 	if (!result)
 		return (NULL);
-	if (n == 0)
-		return ("0\0");
-	i = 0;
-	if (n < 0)
-		return (ft_negative_case(n, result, i));
-	while (n > 0)
-	{
-		result[i] = n % 10 + '0';
-		++i;
-		n /= 10;
-	}
-	result[i] = '\0';
-	return (ft_reverse(result));
+	return (ft_solve(n, result));
 }
 
 // #include <stdio.h>
@@ -113,3 +104,5 @@ char	*ft_itoa(int n)
 // 	}
 // 	return (0);
 // }
+// // ccw ft_itoa.c ft_strdup.c ft_strlen.c -o a.out \
+// && ./a.out 0000 123 -123 45123456789876543

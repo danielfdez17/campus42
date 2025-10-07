@@ -6,22 +6,12 @@
 /*   By: danfern3 <danfern3@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/03 07:45:53 by danfern3          #+#    #+#             */
-/*   Updated: 2025/10/03 12:21:58 by danfern3         ###   ########.fr       */
+/*   Updated: 2025/10/07 10:56:08 by danfern3         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <stdlib.h>
 #include "libft.h"
-
-// size_t	ft_strlen(const char *s)
-// {
-// 	size_t	i;
-
-// 	i = 0;
-// 	while (s[i])
-// 		++i;
-// 	return (i);
-// }
 
 static int	ft_is_in_set(char c, char const *set)
 {
@@ -41,33 +31,40 @@ char	*ft_strtrim(char const *s1, char const *set)
 	char	*result;
 	size_t	start;
 	size_t	end;
-	int		i;
 
 	start = 0;
-	while (ft_is_in_set(s1[start], set) == 1)
-		++start;
 	end = ft_strlen(s1) - 1;
-	while (ft_is_in_set(s1[end], set) == 1)
+	while (ft_is_in_set(s1[start], set) == 1 && start <= end)
+		++start;
+	while (ft_is_in_set(s1[end], set) == 1 && end >= start)
 		--end;
 	result = malloc(sizeof(char) * (end - start + 1));
 	if (!result)
 		return (NULL);
-	i = 0;
-	while (start <= end)
-	{
-		result[i++] = s1[start];
-		++start;
-	}
-	result[i] = '\0';
-	return (result);
+	return (ft_substr(s1, start, end - start + 1));
 }
 
 // #include <stdio.h>
 // int main(void)
 // {
-// 	char const *s1 = "      hola---------";
-// 	char const *set = " -lo";
-// 	char *ptr = ft_strtrim(s1, set);
-// 	printf("ft_strtrim: %s\n", ptr);
+// 	printf("%s|\n---\n", \
+// ft_strtrim("lorem \n ipsum \t dolor \n sit \t amet", " "));
+// 	printf("%s|\n---\n", ft_strtrim("lorem ipsum dolor sit amet", "te"));
+// 	printf("%s|\n---\n", ft_strtrim(" lorem ipsum dolor sit amet", "l "));
+// 	printf("%s|\n---\n", ft_strtrim("lorem ipsum dolor sit amet", "tel"));
+// 	printf("%s|\n---\n", ft_strtrim("          ", " "));
+// 	printf("%s|\n---\n", ft_strtrim("  \t \t \n   \n\n\n\t", " \n\t"));
+// 	printf("%s|\n---\n", ft_strtrim("", " \n\t"));
+// 	printf("%s|\n---\n", ft_strtrim("   xxx   xxx", " x"));
+// 	printf("%s|\n---\n", ft_strtrim("", ""));
+// 	printf("%s|\n---\n", ft_strtrim("abcd", ""));
+// 	printf("%s|\n---\n", ft_strtrim("", "cdef"));
+// 	printf("%s|\n---\n", ft_strtrim(" . abcd", " "));
+// 	printf("%s|\n---\n", ft_strtrim("ab cd  f    ", " "));
+// 	printf("%s|\n---\n", \
+// ft_strtrim("xxxz  test with x and z and x .  zx  xx z", "z x"));
+// 	printf("%s|\n---\n", ft_strtrim("   abxfg  ", "x"));
+// 	printf("%s|\n---\n", ft_strtrim(".teste, bla ,.,.", ",."));
 // 	return (0);
 // }
+// // ccw ft_strtrim.c ft_strlen.c ft_substr.c ft_strdup.c -o a.out && ./a.out

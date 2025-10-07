@@ -6,7 +6,7 @@
 /*   By: danfern3 <danfern3@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/03 07:46:05 by danfern3          #+#    #+#             */
-/*   Updated: 2025/10/03 08:10:48 by danfern3         ###   ########.fr       */
+/*   Updated: 2025/10/07 11:01:59 by danfern3         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -93,6 +93,7 @@ char	**ft_split(char const *s, char c)
 		}
 		++counters[0];
 	}
+	ft_aux_get_seg(s, result, counters);
 	result[counters[1]] = NULL;
 	return (result);
 }
@@ -100,12 +101,12 @@ char	**ft_split(char const *s, char c)
 // #include <stdio.h>
 // int main(void)
 // {
-// 	char const *s = "hola buenos dias";
-// 	char c = ' ';
+// 	char const *s = "hola adios adios hola";
+// 	char c = 'a';
 // 	char **result = ft_split(s, c);
 // 	int i = 0;
 // 	while (result[i]) {
-// 		printf("ft_split: %s\n", result[i]);
+// 		printf("%s|\n", result[i]);
 // 		++i;
 // 	}
 // 	return (0);
