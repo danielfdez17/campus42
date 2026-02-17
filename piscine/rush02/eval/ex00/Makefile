@@ -25,7 +25,8 @@ OBJ_DIR = obj/
 
 # * Sources files
 RUSH02_DIR = src/
-RUSH02_SRCS =	$(addprefix $(RUSH02_DIR), main.c)
+RUSH02_SRCS =	$(addprefix $(RUSH02_DIR), main.c) \
+				$(addprefix $(RUSH02_DIR), ft_atoull.c)
 SRCS = $(RUSH02_SRCS)
 
 # * Creating object files
@@ -40,6 +41,9 @@ LIBFT = inc/libft/libft.a
 $(OBJ_DIR)%.o: $(RUSH02_DIR)%.c
 	@mkdir -p $(OBJ_DIR)
 	@$(CC) $(CFLAGS) $(INCLUDES) -c $< -o $@
+
+$(LIBFT):
+	@$(MAKE) -C $(dir $(LIBFT))
 
 # ? main program compilation
 $(NAME): $(OBJS)

@@ -8,12 +8,14 @@ int main(int ac, char **av)
 	{
 		// ! value to convert
 		ft_print_info("Unimplemented feature: value to convert");
+		convert_value(av[1]);
 	}
 	else if (ac == 3)
 	{
 		// ! dictionary file
 		// ! value to convert
 		ft_print_info("Unimplemented feature: dictionary file andvalue to convert");
+		read_and_convert(av[1], av[2]);
 	}
 	else
 	{
