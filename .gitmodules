@@ -1,0 +1,60 @@
+[submodule "cursus/libft"]
+	path = cursus/libft
+	url = https://github.com/danielfdez17/libft.git
+[submodule "cursus/get_next_line"]
+	path = cursus/get_next_line
+	url = https://github.com/danielfdez17/get_next_line.git
+[submodule "cursus/ft_printf"]
+	path = cursus/ft_printf
+	url = https://github.com/danielfdez17/ft_printf.git
+[submodule "cursus/push_swap"]
+	path = cursus/push_swap
+	url = https://github.com/danielfdez17/push_swap.git
+[submodule "cursus/so_long"]
+	path = cursus/so_long
+	url = https://github.com/danielfdez17/so_long.git
+[submodule "cursus/pipex"]
+	path = cursus/pipex
+	url = https://github.com/danielfdez17/pipex.git
+[submodule "cursus/philosophers"]
+	path = cursus/philosophers
+	url = https://github.com/danielfdez17/philosophers.git
+[submodule "cursus/minishell"]
+	path = cursus/minishell
+	url = https://github.com/danielfdez17/minishell.git
+[submodule "cursus/cpp-module-00"]
+	path = cursus/cpp-module-00
+	url = https://github.com/danielfdez17/cpp-module-00.git
+[submodule "cursus/cpp-module-01"]
+	path = cursus/cpp-module-01
+	url = https://github.com/danielfdez17/cpp-module-01.git
+[submodule "cursus/cpp-module-02"]
+	path = cursus/cpp-module-02
+	url = https://github.com/danielfdez17/cpp-module-02.git
+[submodule "cursus/cpp-module-03"]
+	path = cursus/cpp-module-03
+	url = https://github.com/danielfdez17/cpp-module-03.git
+[submodule "cursus/cpp-module-04"]
+	path = cursus/cpp-module-04
+	url = https://github.com/danielfdez17/cpp-module-04.git
+[submodule "cursus/cpp-module-05"]
+	path = cursus/cpp-module-05
+	url = https://github.com/danielfdez17/cpp-module-05.git
+[submodule "cursus/cpp-module-06"]
+	path = cursus/cpp-module-06
+	url = https://github.com/danielfdez17/cpp-module-06.git
+[submodule "cursus/cpp-module-07"]
+	path = cursus/cpp-module-07
+	url = https://github.com/danielfdez17/cpp-module-07.git
+[submodule "cursus/cpp-module-08"]
+	path = cursus/cpp-module-08
+	url = https://github.com/danielfdez17/cpp-module-08.git
+[submodule "cursus/cpp-module-09"]
+	path = cursus/cpp-module-09
+	url = https://github.com/danielfdez17/cpp-module-09.git
+[submodule "cursus/cub3D"]
+	path = cursus/cub3D
+	url = https://github.com/danielfdez17/cub3D.git
+[submodule "cursus/inception"]
+	path = cursus/inception
+	url = https://github.com/danielfdez17/inception.git
