@@ -58,3 +58,12 @@
 [submodule "cursus/inception"]
 	path = cursus/inception
 	url = https://github.com/danielfdez17/inception.git
+[submodule "cursus/ft_irc"]
+	path = cursus/ft_irc
+	url = https://github.com/danielfdez17/ft_irc.git
+[submodule "cursus/netpractice"]
+	path = cursus/netpractice
+	url = https://github.com/danielfdez17/netpractice.git
+[submodule "cursus/transcendence"]
+	path = cursus/transcendence
+	url = https://github.com/Univers42/transcendence.git
